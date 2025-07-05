@@ -2,7 +2,9 @@
 
 ## Overview
 
-This repository is a small experiment for turning Rimworld gameplay logs into a novella. The workflow will rely on Jupyter notebooks and a large language model to automatically generate a narrative from the collected logs.
+This repository is a small experiment for turning Rimworld gameplay logs into a
+novella. The workflow will rely on Jupyter notebooks and a large language model
+to automatically generate a narrative from the collected logs.
 
 ## Getting Started
 
@@ -21,8 +23,23 @@ pip install -r requirements.txt
 jupyter notebook
 ```
 
-You can then step through the notebook to parse logs, feed them to the LLM, and produce story text.
+You can then step through the notebook to parse logs, feed them to the LLM, and
+produce story text.
+
+## Loading Log Files
+
+The project includes a small helper module for reading log files. Example usage:
+
+```python
+from src import log_loader
+
+content = log_loader.load_output_log('/path/to/RimWorld_data')
+player = log_loader.load_player_log('/path/to/RimWorld_data')
+```
+
+Any log path can be supplied to `load_log()` if you need to load custom files.
 
 ## Project Status
 
-This is an early prototype intended to explore approaches for generating longer form text from gameplay logs. Contributions and suggestions are welcome!
+This is an early prototype intended to explore approaches for generating longer
+form text from gameplay logs. Contributions and suggestions are welcome!

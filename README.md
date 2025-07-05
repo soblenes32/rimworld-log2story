@@ -39,6 +39,18 @@ player = log_loader.load_player_log('/path/to/RimWorld_data')
 
 Any log path can be supplied to `load_log()` if you need to load custom files.
 
+## Choosing the OpenAI Model
+
+The helper function ``complete_prompt`` accepts a ``model`` parameter so you can
+control which OpenAI model generates the story. It defaults to ``gpt-4.1`` but
+can be overridden if you wish to use a different engine:
+
+```python
+from src import complete_prompt
+
+text = complete_prompt("your-api-key", "Once upon a time...", model="gpt-3.5")
+```
+
 ## Project Status
 
 This is an early prototype intended to explore approaches for generating longer

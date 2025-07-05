@@ -20,6 +20,22 @@ def test_complete_prompt(monkeypatch):
     text = openai_helper.complete_prompt("key", "hello")
 
     assert text == "result text"
-    assert captured["model"] == "text-davinci-003"
+    assert captured["model"] == "gpt-4.1"
     assert captured["prompt"] == "hello"
+
+
+def test_complete_prompt_custom_model(monkeypatch):
+    captured = {}
+
+    def fake_create(**kwargs):
+        captured.update(kwargs)
+        return DummyResponse("alt")
+
+    monkeypatch.setattr(openai_helper.openai.Completion, "create", fake_create)
+
+    text = openai_helper.complete_prompt("key", "hi", model="gpt-3.5")
+
+    assert text == "alt"
+    assert captured["model"] == "gpt-3.5"
+    assert captured["prompt"] == "hi"
 

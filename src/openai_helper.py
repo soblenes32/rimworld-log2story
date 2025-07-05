@@ -1,7 +1,7 @@
 import openai
 
 
-def complete_prompt(api_key: str, prompt: str, model: str = "text-davinci-003") -> str:
+def complete_prompt(api_key: str, prompt: str, model: str = "gpt-4.1") -> str:
     """Submit a prompt to the OpenAI completions API and return the response text.
 
     Parameters
@@ -11,7 +11,7 @@ def complete_prompt(api_key: str, prompt: str, model: str = "text-davinci-003") 
     prompt : str
         Text prompt to send to the API.
     model : str, optional
-        Model name to use for completion, by default ``text-davinci-003``.
+        Model name to use for completion, by default ``gpt-4.1``.
 
     Returns
     -------
